@@ -1,34 +1,43 @@
-import { Link } from 'react-router-dom'
+import logo from '../../assets/images/logo_eFood.png'
 
-import { HeaderBar, Links, LinkItem, LinkCart } from './styles'
+import {
+  BannerText,
+  CartText,
+  HeaderBar,
+  HomeContent,
+  LogoImage,
+  LogoLink,
+  NavContent,
+  NavText
+} from './styles'
 
-import logo from '../../assets/images/logo.svg'
-import carrinho from '../../assets/images/carrinho.svg'
+type Props = {
+  variant?: 'home' | 'restaurant'
+}
 
-const Header = () => (
-  <HeaderBar>
-    <div>
-      <Link to="/">
-        <img src={logo} alt="EPLAY" />
-      </Link>
-      <nav>
-        <Links>
-          <LinkItem>
-            <Link to="/categories">Categorias</Link>
-          </LinkItem>
-          <LinkItem>
-            <a href="#"></a>Novidades
-          </LinkItem>
-          <LinkItem>
-            <a href="#"></a>Promoções
-          </LinkItem>
-        </Links>
-      </nav>
-    </div>
-    <LinkCart href="#">
-      0 - produto(s)
-      <img src={carrinho} alt="Carrinho" />
-    </LinkCart>
+const Header = ({ variant = 'home' }: Props) => (
+  <HeaderBar $variant={variant}>
+    {variant === 'home' ? (
+      <HomeContent className="container">
+        <LogoLink to="/" aria-label="efood">
+          <LogoImage src={logo} alt="efood" />
+        </LogoLink>
+
+        <BannerText>
+          Viva experiências gastronômicas
+          <br />
+          no conforto da sua casa
+        </BannerText>
+      </HomeContent>
+    ) : (
+      <NavContent className="container">
+        <NavText to="/">Restaurantes</NavText>
+        <LogoLink to="/" aria-label="efood">
+          <LogoImage src={logo} alt="efood" />
+        </LogoLink>
+        <CartText>0 produto(s) no carrinho</CartText>
+      </NavContent>
+    )}
   </HeaderBar>
 )
 

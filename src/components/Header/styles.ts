@@ -1,37 +1,72 @@
-import styled from 'styled-components'
-import { cores } from '../../styles'
+import { Link } from 'react-router-dom'
+import styled, { css } from 'styled-components'
 
-export const HeaderBar = styled.header`
-  background-color: ${cores.cinza};
-  padding: 24px;
-  border-radius: 16px;
-  margin-bottom: 80px;
-  display: flex;
+import fundo from '../../assets/images/fundo.png'
+import { cores } from '../../styles/global'
+
+type HeaderBarProps = {
+  $variant: 'home' | 'restaurant'
+}
+
+export const HeaderBar = styled.header<HeaderBarProps>`
+  background-image: url(${fundo});
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  ${({ $variant }) =>
+    $variant === 'home'
+      ? css`
+          padding: 40px 0;
+        `
+      : css`
+          padding: 64px 0;
+        `}
+`
+
+export const HomeContent = styled.div`
   align-items: center;
-  justify-content: space-between;
-
-  a {
-    color: ${cores.branca};
-    text-decoratrion: none;
-    font-weight: bold;
-  }
-
-  div {
-    display: flex;
-    align-items: center;
-  }
-`
-export const Links = styled.ul`
   display: flex;
-  margin-left: 40px;
+  flex-direction: column;
+  gap: 138px;
 `
-export const LinkItem = styled.li`
-  margin-right: 16px;
-`
-export const LinkCart = styled.a`
-  display: flex;
 
-  img {
-    margin-left: 16px;
-  }
+export const NavContent = styled.div`
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+`
+
+export const LogoLink = styled(Link)`
+  display: block;
+  height: 58px;
+  width: 125px;
+`
+
+export const LogoImage = styled.img`
+  height: 58px;
+  width: 125px;
+`
+
+export const BannerText = styled.h1`
+  color: ${cores.vermelho};
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 42px;
+  text-align: center;
+`
+
+export const NavText = styled(Link)`
+  color: ${cores.vermelho};
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 21px;
+`
+
+export const CartText = styled.span`
+  color: ${cores.vermelho};
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 21px;
+  text-align: right;
 `

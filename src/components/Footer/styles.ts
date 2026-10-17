@@ -1,27 +1,36 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { cores } from '../../styles/global'
 
-export const Container = styled.footer`
-  background-color: ${cores.cinza};
-  padding: 32px 0;
-  font-size: 14px;
-`
-
-export const SectionTitle = styled.h4`
-  color: ${cores.branca};
-  font-size: 16px;
-  font-weight: bold;
-`
-export const Links = styled.ul`
+export const FooterBar = styled.footer`
+  align-items: center;
+  background-color: ${cores.bege};
   display: flex;
-  margin-top: 16px;
-  font-size: 14px;
+  flex-direction: column;
+  padding: 40px 0;
 `
-export const Link = styled.a`
-  color: ${cores.cinzaClaro};
-  text-decoration: none;
-  margin-right: 8px;
+
+export const Logo = styled.img`
+  height: 58px;
+  width: 125px;
 `
-export const FooterSection = styled.div`
-  margin-bottom: 64px;
+
+export const SocialList = styled.ul`
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin-top: 32px;
+`
+
+export const SocialIcon = styled.img`
+  height: 24px;
+  width: 24px;
+`
+
+export const LegalText = styled.p`
+  color: ${cores.vermelho};
+  font-size: 10px;
+  line-height: 12px;
+  margin-top: 80px;
+  max-width: 480px;
+  text-align: center;
 `

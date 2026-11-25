@@ -1,43 +1,29 @@
-import { FooterBar, LegalText, Logo, SocialIcon, SocialList } from './styles'
+import Logo from '../Logo'
+import { SocialLinks } from '../../utils/list'
+import logo_efood from '../../assets/images/logo_eFood.png'
 
-import logo from '../../assets/images/logo_eFood.png'
-
-import facebook from '../../assets/images/facebook.png'
-import instagram from '../../assets/images/instagram.png'
-import twitter from '../../assets/images/twitter.png'
+import { FooterContainer, SocialIcons, Text } from './styles'
 
 const currentYear = new Date().getFullYear()
 
-const Footer = () => (
-  <FooterBar>
-    <Logo src={logo} alt="efood" />
+const Footer = () => {
+  return (
+    <FooterContainer>
+      <Logo kind="link" cover={logo_efood} title="Logo eFood" to="/" />
 
-    <SocialList aria-label="Redes sociais">
-      <li>
-        <a href="https://www.instagram.com" aria-label="Instagram">
-          <SocialIcon src={instagram} alt="Instagram" />
-        </a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com" aria-label="Facebook">
-          <SocialIcon src={facebook} alt="Facebook" />
-        </a>
-      </li>
-      <li>
-        <a href="https://www.twitter.com" aria-label="Twitter">
-          <SocialIcon src={twitter} alt="Twitter" />
-        </a>
-      </li>
-    </SocialList>
+      <SocialIcons>
+        {SocialLinks.map((item) => (
+          <img src={item.icon} alt={item.title} key={item.id} />
+        ))}
+      </SocialIcons>
 
-    <LegalText>
-      A efood é uma plataforma para divulgação de estabelecimentos, a
-      responsabilidade pela entrega, qualidade dos produtos é toda do
-      estabelecimento contratado.
-    </LegalText>
-    <br />
-    <p>{currentYear} - &copy; E-Food Todos os direitos reservados</p>
-  </FooterBar>
-)
-
+      <Text>
+        A efood é uma plataforma para divulgação de estabelecimentos, a
+        responsabilidade pela entrega, qualidade dos produtos é toda do
+        estabelecimento contratado.
+      </Text>
+      <p>{currentYear} - &copy; E-Food Todos os direitos reservados</p>
+    </FooterContainer>
+  )
+}
 export default Footer

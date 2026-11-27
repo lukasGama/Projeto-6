@@ -24,6 +24,7 @@ const CardListPerfil = () => {
   const [showModal, setShowModal] = useState(false)
 
   const { id } = useParams()
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const { data } = useGetRestaurantQuery(id!)
   const dispatch = useDispatch()
 

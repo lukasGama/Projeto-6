@@ -29,6 +29,7 @@ export function getDescriptionProduct(description: string) {
 
 export const getTotalPrice = (items: MenuDataProps[]) => {
   return items.reduce((prevValue, currentValue) => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return (prevValue += currentValue.preco!)
   }, 0)
 }
